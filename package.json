@@ -3,7 +3,7 @@
     "lodash": "^4.17.11"
   },
   "name": "@tabit/config-reader",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "src/index.js",
   "devDependencies": {
     "chai": "^4.2.0",
@@ -22,5 +22,8 @@
     "url": "https://github.com/inPact/config-reader/issues"
   },
   "homepage": "https://github.com/inPact/config-reader#readme",
+  "directories": {
+    "test": "test"
+  },
   "description": ""
 }
