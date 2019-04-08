@@ -2,6 +2,14 @@ const _ = require('lodash');
 const floatRegex = /^\d+\.?\d*$/;
 const path = require('path');
 
+function requireOptionalModule(path) {
+    try {
+        return require(path);
+    } catch (e) {
+        return {};
+    }
+}
+
 module.exports = {
     get env() {
         return process.env.NODE_ENV === 'test'
@@ -9,11 +17,12 @@ module.exports = {
             : process.env.NODE_ENV || 'local';
     },
 
-    read({ env, dirPath, defaultConfigPath } = {}) {
+    read({ env, dirPath = '', defaultConfigPath = '' } = {}) {
         env = env || this.env;
+        let defaultConfig = requireOptionalModule(defaultConfigPath);
+        let envConfig = requireOptionalModule(path.join(dirPath, env));
 
-        let config = _.merge(require(defaultConfigPath),
-            require(path.join(dirPath, env)),
+        let config = _.merge(defaultConfig, envConfig,
             (a, b) => {
                 if (b && b.__override)
                     return b;

@@ -5,7 +5,10 @@
   "name": "@tabit/config-reader",
   "version": "0.1.0",
   "main": "src/index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
