@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "name": "@tabit/config-reader",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inPact/config-reader.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inPact/config-reader/issues"
+  },
+  "homepage": "https://github.com/inPact/config-reader#readme",
+  "description": ""
+}
