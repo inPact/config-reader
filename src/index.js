@@ -22,7 +22,7 @@ module.exports = {
         let defaultConfig = requireOptionalModule(defaultConfigPath);
         let envConfig = requireOptionalModule(path.join(dirPath, env));
 
-        let config = _.merge(defaultConfig, envConfig,
+        let config = _.mergeWith(defaultConfig, envConfig,
             (a, b) => {
                 if (b && b.__override)
                     return b;

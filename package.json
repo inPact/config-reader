@@ -3,10 +3,11 @@
     "lodash": "^4.17.11"
   },
   "name": "@tabit/config-reader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "devDependencies": {
     "chai": "^4.2.0",
+    "fs-extra": "^7.0.1",
     "mocha": "^6.1.1"
   },
   "scripts": {
