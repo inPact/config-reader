@@ -3,7 +3,7 @@
     "lodash": "^4.17.11"
   },
   "name": "@tabit/config-reader",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "src/index.js",
   "devDependencies": {
     "chai": "^4.2.0",

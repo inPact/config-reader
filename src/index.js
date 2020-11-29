@@ -1,5 +1,7 @@
 const _ = require('lodash');
 const floatRegex = /^\d+\.?\d*$/;
+const pathOverrideRegex = /[:.]$/;
+const jsonRegex = /^"?{.*}"?$|^"?\[.*\]"?$/;
 const path = require('path');
 
 function requireOptionalModule(path) {
@@ -36,11 +38,10 @@ module.exports = {
 function applyPathConfig(cnfg, env) {
     _.forOwn(env, (val, key) => {
         key = key.trim();
-        if (!_.endsWith(key, ':') || !val)
+        if (!pathOverrideRegex.test(key) || !val)
             return;
 
-        if (_.startsWith(val.trim(), '{') && _.endsWith(val.trim(), '}') ||
-            _.startsWith(val.trim(), '[') && _.endsWith(val.trim(), ']'))
+        if (jsonRegex.test(val.trim()))
             val = JSON.parse(val);
 
         else if (floatRegex.test(val))
@@ -55,7 +56,7 @@ function applyPathConfig(cnfg, env) {
         else
             val = _.trim(val, '"');
 
-        let path = _.trim(key, ':');
+        let path = _.replace(key, pathOverrideRegex, '');
         _.set(cnfg, path, val);
     });
 }
